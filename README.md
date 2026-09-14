@@ -129,33 +129,6 @@ kinds of mistakes:
    `services/api/config.js`. CodeQL's `js/hardcoded-credentials` query
    should flag this.
 
-Don't "fix" these before the demo, that's the whole point.
 
-## GitHub setup checklist (do this once, before class)
 
-- [ ] Push repo to GitHub (public, so Copilot Autofix is free)
-- [ ] Settings -> Secrets and variables -> Actions: add `SUPABASE_URL`,
-      `SUPABASE_SERVICE_ROLE_KEY`, `SUPABASE_DB_URL` if you want CI to run
-      the db-dependent tests
-- [ ] Settings -> Code security -> enable **CodeQL** (default setup)
-- [ ] Settings -> Code security -> enable **Dependabot alerts** +
-      **Dependabot security updates**
-- [ ] Settings -> Branches -> protection rule on `main`: require CI checks
-      + CodeQL before merge - this is the "security gate"
-- [ ] Commit `package-lock.json` for `services/api`, `services/audit`, and
-      `frontend`
-- [ ] **Never commit `.env`** - it's gitignored, but double check before
-      your first push
 
-## Demo timing plan (target: ~7 min, hard limit 6:30-7:30)
-
-- 0:00-1:00 - the problem (manual vuln triage doesn't scale)
-- 1:00-2:00 - architecture walkthrough (frontend / api / audit, and the
-  double-booking rule enforced at both the app and db level)
-- 2:00-3:30 - open the PR, show CodeQL / Dependabot picking it up
-- 3:30-4:30 - show the autofix PR
-- 4:30-5:30 - tests + build + docker validating the fix
-- 5:30-6:30 - branch protection gate passing, merge
-- 6:30-7:00 - wrap up: mention the limitation (autofix isn't guaranteed
-  for every alert type, this doesn't replace manual review for logic bugs
-  or auth design)
