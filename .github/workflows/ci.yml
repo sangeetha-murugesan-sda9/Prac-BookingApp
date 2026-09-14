@@ -24,6 +24,11 @@ jobs:
         working-directory: services/api
         run: npm install
 
+      - name: Debug - check secrets are present
+        run: |
+          echo "SUPABASE_URL is set: ${{ secrets.SUPABASE_URL != '' }}"
+          echo "JWT_SECRET is set: ${{ secrets.JWT_SECRET != '' }}"
+
       # SUPABASE_* secrets need to be added under Settings -> Secrets and
       # variables -> Actions for the db-dependent tests to actually run.
       # without them, those tests skip cleanly instead of failing - see
