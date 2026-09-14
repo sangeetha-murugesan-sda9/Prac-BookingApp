@@ -5,4 +5,4 @@
 const JWT_SECRET = 'devops-demo-secret-2024'; 
 //const JWT_SECRET = process.env.JWT_SECRET;
 
-//module.exports = { JWT_SECRET };
+module.exports = { JWT_SECRET };
