@@ -9,7 +9,7 @@
     "test": "jest --runInBand"
   },
   "dependencies": {
-    "better-sqlite3": "^12.2.0",
+    "better-sqlite3": "^13.0.3",
     "cors": "^2.8.5",
     "express": "^4.19.2"
   },
